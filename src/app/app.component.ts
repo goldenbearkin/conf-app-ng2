@@ -10,4 +10,10 @@ import { FiltersComponent } from './filters/filters.component'
   directives: [FiltersComponent]
 })
 export class AppComponent {
+  speaker: string = '';
+
+  getSpeaker(speaker) {
+    this.speaker = speaker;
+    console.log(`AppComponent: ${this.speaker}`);
+  }
 }

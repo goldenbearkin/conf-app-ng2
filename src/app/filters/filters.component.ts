@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['filters.component.css']
 })
 export class FiltersComponent {
-  speaker: String;
+  @Output() speaker = new EventEmitter();
+
+  onClick(inputValue) {
+    this.speaker.emit(inputValue);
+  }
 }

@@ -1,2 +1,2 @@
-<input type="text" placeholder="Speaker" [(ngModel)]="speaker">
-{{speaker}}
+<input type="text" placeholder="Speaker" #input>
+<button (click)=onClick(input.value)>Filter</button>
