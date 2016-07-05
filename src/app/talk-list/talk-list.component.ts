@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 
 import { TalkComponent } from './talk/talk.component'
 
@@ -8,18 +8,37 @@ export interface Talk {
   visible: boolean;
 }
 
+// import { Record } from 'immutable'
+
+// interface T {
+//     topic: string;
+//     speaker: string;
+//     visible: boolean;
+// }
+
+// const R: {new(p:T): T} = <any>Record({
+//     topic: null,
+//     speaker: null,
+//     visible: null
+// });
+
+// export class Talk extends R {}
+
 @Component({
   moduleId: module.id,
   selector: 'app-talk-list',
   templateUrl: 'talk-list.component.html',
   styleUrls: ['talk-list.component.css'],
-  directives: [TalkComponent]
+  directives: [TalkComponent],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TalkListComponent implements OnInit {
-  talks: Talk[];
+export class TalkListComponent implements OnInit, OnChanges {
+  @Input() speaker: string = '';
+  talks: Talk[] = [];
 
   ngOnInit() {
-    this.talks = [
+
+    const tmp = [
       {
         topic: "Intro to Flux and Redux",
         speaker: "Joseph",
@@ -56,6 +75,39 @@ export class TalkListComponent implements OnInit {
         visible: true
       }
     ]
+
+    tmp.forEach(e => {
+      this.talks.push(e)
+      // this.talks.push(new Talk(e));
+
+    })
+    
+  }
+
+  ngOnChanges() {
+    this.talks.forEach(e => {
+      if (this.speaker === '' || this.speaker === e.speaker) {
+        e.visible = true;
+      } else {
+        e.visible = false;
+      }
+    })
+
+    // this.talks.forEach((e, i) => {
+    //   if (this.speaker === '' || e.speaker === this.speaker) {
+    //     this.talks[i] = {
+    //       topic: e.topic,
+    //       speaker: e.speaker,
+    //       visible: true 
+    //     };
+    //   } else {
+    //     this.talks[i] = {
+    //       topic: e.topic,
+    //       speaker: e.speaker,
+    //       visible: false
+    //     };
+    //   }
+    // })
   }
 
 }
