@@ -5,7 +5,9 @@
  * User Configuration.
  **********************************************************************************************/
 /** Map relative paths to URLs. */
-var map = {};
+var map = {
+    'immutable': 'vendor/immutable/dist/immutable.min.js',
+};
 /** User packages configuration. */
 var packages = {};
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,6 +28,8 @@ var barrels = [
     // App specific barrels.
     'app',
     'app/shared',
+    'app/talk-list',
+    'app/talk-list/talk',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {
