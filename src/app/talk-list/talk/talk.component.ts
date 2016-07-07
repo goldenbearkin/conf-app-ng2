@@ -1,6 +1,7 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+// import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { Talk } from '../talk-list.component'
+import { Talk } from '../talk-list.component';
 
 @Component({
   moduleId: module.id,

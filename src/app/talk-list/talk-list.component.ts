@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
+// import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
-import { TalkComponent } from './talk/talk.component'
+import { TalkComponent } from './talk/talk.component';
 
 export interface Talk {
   topic: string;
@@ -40,48 +41,46 @@ export class TalkListComponent implements OnInit, OnChanges {
 
     const tmp = [
       {
-        topic: "Intro to Flux and Redux",
-        speaker: "Joseph",
+        topic: 'Intro to Flux and Redux',
+        speaker: 'Joseph',
         visible: true
       },
       {
-        topic: "OneSky's take on using redux with AngularJs",
-        speaker: "Roger",
+        topic: 'OneSky\'s take on using redux with AngularJs',
+        speaker: 'Roger',
         visible: true
       },
       {
-        topic: "Why Functional Programming is so good with Scala?",
-        speaker: "Cherry",
+        topic: 'Why Functional Programming is so good with Scala?',
+        speaker: 'Cherry',
         visible: true
       },
       {
-        topic: "Stuff at our Startup powered by Scala",
-        speaker: "Jimmy",
+        topic: 'Stuff at our Startup powered by Scala',
+        speaker: 'Jimmy',
         visible: true
       },
       {
-        topic: "Intro to AWS Lambda, when to use?",
-        speaker: "Vincent",
+        topic: 'Intro to AWS Lambda, when to use?',
+        speaker: 'Vincent',
         visible: true
       },
       {
-        topic: "Managing Lambda with Apex",
-        speaker: "Roger",
+        topic: 'Managing Lambda with Apex',
+        speaker: 'Roger',
         visible: true
       },
       {
-        topic: "Angular2 vs ReactJS",
-        speaker: "Jason",
+        topic: 'Angular2 vs ReactJS',
+        speaker: 'Jason',
         visible: true
       }
-    ]
+    ];
 
     tmp.forEach(e => {
-      this.talks.push(e)
+      this.talks.push(e);
       // this.talks.push(new Talk(e));
-
-    })
-    
+    });
   }
 
   ngOnChanges() {
@@ -91,7 +90,7 @@ export class TalkListComponent implements OnInit, OnChanges {
       } else {
         e.visible = false;
       }
-    })
+    });
 
     // this.talks.forEach((e, i) => {
     //   if (this.speaker === '' || e.speaker === this.speaker) {

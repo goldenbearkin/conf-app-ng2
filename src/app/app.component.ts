@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { FiltersComponent } from './filters/filters.component'
-import { TalkListComponent } from './talk-list/talk-list.component'
+import { FiltersComponent } from './filters/filters.component';
+import { TalkListComponent } from './talk-list/talk-list.component';
 
 @Component({
   moduleId: module.id,
